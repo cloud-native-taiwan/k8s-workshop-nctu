@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: busybox
+spec:
+  selector:
+    app: busybox
+  type: ClusterIP
+  clusterIP: None

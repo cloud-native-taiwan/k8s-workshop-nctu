@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+spec:
+  restartPolicy: Always
+  containers:
+  - name: busybox
+    image: busybox
+    command: ["/bin/sh", "-c"]
+    args: 
+    - "while :; do cat /mnt/README.md; sleep 1; done"
+    volumeMounts:
+    - mountPath: /mnt
+      name: host-dir
+  volumes:
+  - name: host-dir
+    hostPath:
+      path: /mnt
+      type: File
+
+
+    
+     
