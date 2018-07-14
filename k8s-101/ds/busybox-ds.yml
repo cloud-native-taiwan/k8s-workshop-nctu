@@ -13,17 +13,9 @@ spec:
       labels:
         app: busybox-ds
     spec:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchFields:
-            - key: metadata.name
-              operator: In
-              values:
-              - k8s-n2
       containers:
       - name: busybox
         image: busybox
         command: ["/bin/sh", "-c"]
         args:
-        - "while :; do cat echo "Hello world!!"; sleep 1; done"
+        - "while :; do echo Hello; sleep 1; done"
